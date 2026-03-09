@@ -16,5 +16,62 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRANSAKSIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eXITAPPLICATIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bUKUToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormBuku formbuku = new FormBuku();
+            formbuku.ShowDialog();
+        }
+
+        private void uSERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //kosongkan formlogin
+            Classkoneksi.NamaUser = null;
+            Classkoneksi.StatusUser = null;
+
+            LoginPerpus login = new LoginPerpus();
+            login.Show();
+            this.Close();
+        }
+
+        private void fILEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bUKUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormDashboard_Load(object sender, EventArgs e)
+        {
+            labelStatus.Text= "Sttaus Login: " + Classkoneksi.StatusUser;
+        }
     }
 }

@@ -12,26 +12,11 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class LoginPerpus : Form
     {
-        public Form1()
+        public LoginPerpus()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -59,24 +44,59 @@ namespace WindowsFormsApp1
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    
+                    string sql = "SELECT U.username, R.nama_status FROM Users U " +
+                                 " JOIN Status R ON U.status_id = R.id " +
+                                 " WHERE U.username=@user AND U.password=@pass";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@user", txtUsername.Text.Trim());
+                    cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());
+
+                    //membuka koneksi
+                    conn.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Classkoneksi.NamaUser = dr["username"].ToString();
+                        Classkoneksi.StatusUser = dr["nama_status"].ToString();
+
+                        MessageBox.Show("Selamat Datang " + Classkoneksi.NamaUser);
+
+
+                        FormDashboard dash = new FormDashboard();
+                        dash.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username atau password salah!!");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
+
+                }
+            }
         }
     }
 }

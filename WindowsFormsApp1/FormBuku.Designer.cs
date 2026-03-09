@@ -28,88 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvBuku = new System.Windows.Forms.DataGridView();
+            this.txtJudul = new System.Windows.Forms.TextBox();
+            this.txtPenulis = new System.Windows.Forms.TextBox();
+            this.txtStok = new System.Windows.Forms.TextBox();
+            this.btntambah = new System.Windows.Forms.Button();
+            this.btnedit = new System.Windows.Forms.Button();
+            this.btnhapus = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Penulis = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuku)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBuku
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBuku.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBuku.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBuku.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBuku.Location = new System.Drawing.Point(27, 236);
+            this.dgvBuku.Name = "dgvBuku";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBuku.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBuku.RowHeadersWidth = 51;
+            this.dgvBuku.RowTemplate.Height = 24;
+            this.dgvBuku.Size = new System.Drawing.Size(743, 177);
+            this.dgvBuku.TabIndex = 0;
+            this.dgvBuku.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuku_CellClick_1);
+            this.dgvBuku.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuku_CellContentClick);
             // 
-            // textBox1
+            // txtJudul
             // 
-            this.textBox1.Location = new System.Drawing.Point(241, 245);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtJudul.Location = new System.Drawing.Point(46, 106);
+            this.txtJudul.Name = "txtJudul";
+            this.txtJudul.Size = new System.Drawing.Size(195, 22);
+            this.txtJudul.TabIndex = 1;
             // 
-            // textBox2
+            // txtPenulis
             // 
-            this.textBox2.Location = new System.Drawing.Point(241, 274);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtPenulis.Location = new System.Drawing.Point(315, 106);
+            this.txtPenulis.Name = "txtPenulis";
+            this.txtPenulis.Size = new System.Drawing.Size(195, 22);
+            this.txtPenulis.TabIndex = 2;
             // 
-            // textBox3
+            // txtStok
             // 
-            this.textBox3.Location = new System.Drawing.Point(231, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtStok.Location = new System.Drawing.Point(46, 184);
+            this.txtStok.Name = "txtStok";
+            this.txtStok.Size = new System.Drawing.Size(195, 22);
+            this.txtStok.TabIndex = 3;
             // 
-            // button1
+            // btntambah
             // 
-            this.button1.Location = new System.Drawing.Point(54, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btntambah.BackColor = System.Drawing.Color.ForestGreen;
+            this.btntambah.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntambah.ForeColor = System.Drawing.Color.Black;
+            this.btntambah.Location = new System.Drawing.Point(665, 76);
+            this.btntambah.Name = "btntambah";
+            this.btntambah.Size = new System.Drawing.Size(75, 27);
+            this.btntambah.TabIndex = 4;
+            this.btntambah.Text = "TAMBAH";
+            this.btntambah.UseVisualStyleBackColor = false;
+            this.btntambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
-            // button2
+            // btnedit
             // 
-            this.button2.Location = new System.Drawing.Point(68, 321);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnedit.BackColor = System.Drawing.Color.Orange;
+            this.btnedit.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedit.Location = new System.Drawing.Point(665, 131);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(75, 25);
+            this.btnedit.TabIndex = 5;
+            this.btnedit.Text = "EDIT";
+            this.btnedit.UseVisualStyleBackColor = false;
+            this.btnedit.Click += new System.EventHandler(this.btnUbah_Click);
             // 
-            // button3
+            // btnhapus
             // 
-            this.button3.Location = new System.Drawing.Point(68, 292);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnhapus.BackColor = System.Drawing.Color.Red;
+            this.btnhapus.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhapus.Location = new System.Drawing.Point(665, 183);
+            this.btnhapus.Name = "btnhapus";
+            this.btnhapus.Size = new System.Drawing.Size(75, 26);
+            this.btnhapus.TabIndex = 6;
+            this.btnhapus.Text = "HAPUS";
+            this.btnhapus.UseVisualStyleBackColor = false;
+            this.btnhapus.Click += new System.EventHandler(this.btnHapus_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "PENGELOLAAN DATA BUKU";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // Penulis
+            // 
+            this.Penulis.AutoSize = true;
+            this.Penulis.Location = new System.Drawing.Point(43, 165);
+            this.Penulis.Name = "Penulis";
+            this.Penulis.Size = new System.Drawing.Size(91, 16);
+            this.Penulis.TabIndex = 8;
+            this.Penulis.Text = "Nama Penulis";
+            this.Penulis.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Judul Buku";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(312, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Stok";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, -2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(806, 51);
+            this.panel1.TabIndex = 11;
             // 
             // FormBuku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Penulis);
+            this.Controls.Add(this.btnhapus);
+            this.Controls.Add(this.btnedit);
+            this.Controls.Add(this.btntambah);
+            this.Controls.Add(this.txtStok);
+            this.Controls.Add(this.txtPenulis);
+            this.Controls.Add(this.txtJudul);
+            this.Controls.Add(this.dgvBuku);
+            this.Controls.Add(this.panel1);
             this.Name = "FormBuku";
             this.Text = "FormBuku";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuku)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,12 +219,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dgvBuku;
+        private System.Windows.Forms.TextBox txtJudul;
+        private System.Windows.Forms.TextBox txtPenulis;
+        private System.Windows.Forms.TextBox txtStok;
+        private System.Windows.Forms.Button btntambah;
+        private System.Windows.Forms.Button btnedit;
+        private System.Windows.Forms.Button btnhapus;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Penulis;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }
