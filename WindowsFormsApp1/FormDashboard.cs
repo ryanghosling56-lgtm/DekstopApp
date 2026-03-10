@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
 
         private void FormDashboard_Load(object sender, EventArgs e)
         {
-            labelStatus.Text= "Sttaus Login: " + Classkoneksi.StatusUser;
+            labelStatus.Text= "Status Login: " + Classkoneksi.StatusUser;
         }
     }
 }

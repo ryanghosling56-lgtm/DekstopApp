@@ -29,32 +29,7 @@ namespace WindowsFormsApp1
         }
 
 
-
-        private void LoadData()
-        {
-            using (SqlConnection connection = new SqlConnection(Classkoneksi.ConnectionString))
-            {
-                try
-                {
-                    string query = "SELECT * FORM Buku";
-                    SqlDataAdapter da = new SqlDataAdapter(query, connection);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dgvBuku.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error Load Data" + ex.Message);
-                }
-
-            }
-        }
-
-        private void FormBuku_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
+        //Menampilkan Data Di DataGridView
         void TampilData()
         {
             using (SqlConnection conn = Classkoneksi.GetConn())
@@ -81,6 +56,35 @@ namespace WindowsFormsApp1
         }
 
 
+        //Mengambil Data Dari Database!!
+        private void LoadData()
+        {
+            using (SqlConnection connection = new SqlConnection(Classkoneksi.ConnectionString))
+            {
+                try
+                {
+                    string query = "SELECT * FROM Buku";
+                    SqlDataAdapter da = new SqlDataAdapter(query, connection);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvBuku.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Load Data" + ex.Message);
+                }
+
+            }
+        }
+
+        private void FormBuku_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+      
+
+
 
 
 
@@ -90,7 +94,8 @@ namespace WindowsFormsApp1
         {
             if (string.IsNullOrEmpty(txtJudul.Text) || string.IsNullOrEmpty(txtPenulis.Text))
             {
-                MessageBox.Show("Semua Kolom Harus Diisi"); return;
+                MessageBox.Show("Semua Kolom Harus Diisi");
+                return;
             }
 
             using (SqlConnection conn = new SqlConnection(Classkoneksi.ConnectionString))
@@ -101,7 +106,7 @@ namespace WindowsFormsApp1
 
                     //agar stok berupa angka[int]
                     int stok;
-                    if (int.TryParse(txtStok.Text, out stok))
+                    if (!int.TryParse(txtStok.Text, out stok))
                     {
                         MessageBox.Show("Stok harus diisi angka!!");
                         return;
@@ -168,7 +173,11 @@ namespace WindowsFormsApp1
         //  DELETE: Hapus Data
         private void btnHapus_Click(object sender, EventArgs e)
         {
-            if (selectedBukuId == 0) return;
+            if (selectedBukuId == 0)
+            {
+                MessageBox.Show("Silahkan pilih data yang ingin dihapus ");
+                return;
+            }   
 
             // Konfirmasi Hapus (Poin User Experience)
             DialogResult dr = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo);
@@ -179,17 +188,19 @@ namespace WindowsFormsApp1
                     try
                     {
                         conn.Open();
-                        string query = "DELETE FROM Buku WHERE id=@id";
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        string sql = "DELETE FROM Buku WHERE id=@id";
+                        SqlCommand cmd = new SqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@id", selectedBukuId);
 
                         cmd.ExecuteNonQuery();
-                        LoadData();
+                        MessageBox.Show("Data berhasil dihapus!");
+                   
+                        TampilData();
                         ClearFields();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Gagal Hapus: " + ex.Message);
+                        MessageBox.Show("Gagal Menghapus Data: " + ex.Message);
                     }
                 }
             }
@@ -241,17 +252,22 @@ namespace WindowsFormsApp1
 
         private void dgvBuku_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvBuku.Rows[e.RowIndex].Cells[0].Value != null) 
+
             {
-                DataGridViewRow row
-                     = dgvBuku.Rows[e.RowIndex];
+                DataGridViewRow row = dgvBuku.Rows[e.RowIndex];
 
-                selectedBukuId = int.Parse(row.Cells["0"].Value.ToString());
+                selectedBukuId = Convert.ToInt32(row.Cells[0].Value);
 
-                txtJudul.Text = row.Cells["Judul"].Value.ToString();
-                txtPenulis.Text = row.Cells["penulis"].Value.ToString();
-                txtStok.Text = row.Cells["stok"].Value.ToString();
+                txtJudul.Text = row.Cells[1].Value?.ToString() ?? "";
+                txtPenulis.Text = row.Cells[2].Value?.ToString() ?? "";
+                txtStok.Text = row.Cells[3].Value?.ToString() ?? "";
             }
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

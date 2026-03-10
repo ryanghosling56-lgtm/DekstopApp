@@ -73,22 +73,33 @@ namespace WindowsFormsApp1
                     conn.Open();
 
                     SqlDataReader dr = cmd.ExecuteReader();
+
+                    //Saat Data ditemukan..
                     if (dr.Read())
                     {
                         Classkoneksi.NamaUser = dr["username"].ToString();
                         Classkoneksi.StatusUser = dr["nama_status"].ToString();
 
-                        MessageBox.Show("Selamat Datang " + Classkoneksi.NamaUser);
+                        if (Classkoneksi.StatusUser.ToLower() == "admin") 
 
+                        {
+                            MessageBox.Show(" Login Berhasil sebagai Admin ");
 
-                        FormDashboard dash = new FormDashboard();
-                        dash.Show();
-                        this.Hide();
+                            FormDashboard dash = new FormDashboard();
+                            dash.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Akses Ditolak! Hanya admin yang dapat login");
+                            conn.Close();
+
+                        }
+                        
                     }
                     else
                     {
                         MessageBox.Show("Username atau password salah!!");
-
                     }
                 }
                 catch (Exception ex)

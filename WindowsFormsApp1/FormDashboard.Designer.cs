@@ -51,7 +51,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -63,14 +63,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(854, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(854, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 26);
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // fILEToolStripMenuItem
@@ -80,7 +80,7 @@
             this.eXITAPPLICATIONToolStripMenuItem});
             this.fILEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fILEToolStripMenuItem.Image")));
             this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
-            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.fILEToolStripMenuItem.Text = "  FILE";
             this.fILEToolStripMenuItem.Click += new System.EventHandler(this.fILEToolStripMenuItem_Click);
             // 
@@ -107,7 +107,7 @@
             this.bUKUToolStripMenuItem1});
             this.bUKUToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bUKUToolStripMenuItem.Image")));
             this.bUKUToolStripMenuItem.Name = "bUKUToolStripMenuItem";
-            this.bUKUToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.bUKUToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
             this.bUKUToolStripMenuItem.Text = " KELOLA";
             this.bUKUToolStripMenuItem.Click += new System.EventHandler(this.bUKUToolStripMenuItem_Click);
             // 
@@ -133,7 +133,7 @@
             this.pENGEMBALIANToolStripMenuItem});
             this.tRANSAKSIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tRANSAKSIToolStripMenuItem.Image")));
             this.tRANSAKSIToolStripMenuItem.Name = "tRANSAKSIToolStripMenuItem";
-            this.tRANSAKSIToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.tRANSAKSIToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.tRANSAKSIToolStripMenuItem.Text = "TRANSAKSI BUKU";
             this.tRANSAKSIToolStripMenuItem.Click += new System.EventHandler(this.tRANSAKSIToolStripMenuItem_Click);
             // 
@@ -156,17 +156,19 @@
             this.sTATISTIKToolStripMenuItem});
             this.lAPORANToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lAPORANToolStripMenuItem.Image")));
             this.lAPORANToolStripMenuItem.Name = "lAPORANToolStripMenuItem";
-            this.lAPORANToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.lAPORANToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
             this.lAPORANToolStripMenuItem.Text = "LAPORAN";
             // 
             // lAPORANTRANSAKSIToolStripMenuItem
             // 
+            this.lAPORANTRANSAKSIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lAPORANTRANSAKSIToolStripMenuItem.Image")));
             this.lAPORANTRANSAKSIToolStripMenuItem.Name = "lAPORANTRANSAKSIToolStripMenuItem";
             this.lAPORANTRANSAKSIToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.lAPORANTRANSAKSIToolStripMenuItem.Text = "LAPORAN TRANSAKSI";
             // 
             // sTATISTIKToolStripMenuItem
             // 
+            this.sTATISTIKToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sTATISTIKToolStripMenuItem.Image")));
             this.sTATISTIKToolStripMenuItem.Name = "sTATISTIKToolStripMenuItem";
             this.sTATISTIKToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.sTATISTIKToolStripMenuItem.Text = "STATISTIK";
