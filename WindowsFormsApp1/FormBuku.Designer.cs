@@ -39,13 +39,15 @@
             this.btntambah = new System.Windows.Forms.Button();
             this.btnedit = new System.Windows.Forms.Button();
             this.btnhapus = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Penulis = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuku)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,33 +97,37 @@
             // 
             // txtJudul
             // 
-            this.txtJudul.Location = new System.Drawing.Point(28, 102);
+            this.txtJudul.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtJudul.Location = new System.Drawing.Point(31, 152);
             this.txtJudul.Name = "txtJudul";
             this.txtJudul.Size = new System.Drawing.Size(195, 22);
             this.txtJudul.TabIndex = 1;
             // 
             // txtPenulis
             // 
-            this.txtPenulis.Location = new System.Drawing.Point(229, 102);
+            this.txtPenulis.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPenulis.Location = new System.Drawing.Point(232, 152);
             this.txtPenulis.Name = "txtPenulis";
             this.txtPenulis.Size = new System.Drawing.Size(195, 22);
             this.txtPenulis.TabIndex = 2;
             // 
             // txtStok
             // 
-            this.txtStok.Location = new System.Drawing.Point(430, 102);
+            this.txtStok.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtStok.Location = new System.Drawing.Point(433, 152);
             this.txtStok.Name = "txtStok";
-            this.txtStok.Size = new System.Drawing.Size(195, 22);
+            this.txtStok.Size = new System.Drawing.Size(93, 22);
             this.txtStok.TabIndex = 3;
             // 
             // btntambah
             // 
+            this.btntambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btntambah.BackColor = System.Drawing.Color.ForestGreen;
             this.btntambah.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntambah.ForeColor = System.Drawing.Color.Black;
-            this.btntambah.Location = new System.Drawing.Point(677, 97);
+            this.btntambah.Location = new System.Drawing.Point(542, 97);
             this.btntambah.Name = "btntambah";
-            this.btntambah.Size = new System.Drawing.Size(93, 27);
+            this.btntambah.Size = new System.Drawing.Size(228, 27);
             this.btntambah.TabIndex = 4;
             this.btntambah.Text = "TAMBAH";
             this.btntambah.UseVisualStyleBackColor = false;
@@ -129,11 +135,12 @@
             // 
             // btnedit
             // 
+            this.btnedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnedit.BackColor = System.Drawing.Color.Orange;
             this.btnedit.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnedit.Location = new System.Drawing.Point(677, 152);
+            this.btnedit.Location = new System.Drawing.Point(542, 152);
             this.btnedit.Name = "btnedit";
-            this.btnedit.Size = new System.Drawing.Size(93, 25);
+            this.btnedit.Size = new System.Drawing.Size(228, 25);
             this.btnedit.TabIndex = 5;
             this.btnedit.Text = "EDIT";
             this.btnedit.UseVisualStyleBackColor = false;
@@ -141,31 +148,22 @@
             // 
             // btnhapus
             // 
+            this.btnhapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnhapus.BackColor = System.Drawing.Color.Red;
             this.btnhapus.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhapus.Location = new System.Drawing.Point(677, 204);
+            this.btnhapus.Location = new System.Drawing.Point(542, 204);
             this.btnhapus.Name = "btnhapus";
-            this.btnhapus.Size = new System.Drawing.Size(93, 26);
+            this.btnhapus.Size = new System.Drawing.Size(228, 26);
             this.btnhapus.TabIndex = 6;
             this.btnhapus.Text = "HAPUS";
             this.btnhapus.UseVisualStyleBackColor = false;
             this.btnhapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "PENGELOLAAN DATA BUKU";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // Penulis
             // 
+            this.Penulis.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Penulis.AutoSize = true;
-            this.Penulis.Location = new System.Drawing.Point(226, 83);
+            this.Penulis.Location = new System.Drawing.Point(229, 133);
             this.Penulis.Name = "Penulis";
             this.Penulis.Size = new System.Drawing.Size(91, 16);
             this.Penulis.TabIndex = 8;
@@ -174,8 +172,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 83);
+            this.label3.Location = new System.Drawing.Point(28, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 9;
@@ -184,21 +183,13 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(427, 82);
+            this.label4.Location = new System.Drawing.Point(430, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Stok";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, -2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(806, 51);
-            this.panel1.TabIndex = 11;
             // 
             // label2
             // 
@@ -210,6 +201,38 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Pilih Buku yang ingin diubah!";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(94, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(382, 38);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "PENGELOLAAN DATA BUKU";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(27, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 42);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 63);
+            this.panel1.TabIndex = 11;
             // 
             // FormBuku
             // 
@@ -232,7 +255,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBuku";
             this.Text = "Perpustakaan Esemka";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuku)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -249,11 +274,12 @@
         private System.Windows.Forms.Button btntambah;
         private System.Windows.Forms.Button btnedit;
         private System.Windows.Forms.Button btnhapus;
-        public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Penulis;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

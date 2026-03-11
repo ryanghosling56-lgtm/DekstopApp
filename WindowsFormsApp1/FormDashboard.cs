@@ -73,5 +73,12 @@ namespace WindowsFormsApp1
         {
             labelStatus.Text= "Status Login: " + Classkoneksi.StatusUser;
         }
+
+        private void uSERSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formUser formUser = new formUser();
+            formUser.ShowDialog();
+
+        }
     }
 }

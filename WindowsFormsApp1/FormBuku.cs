@@ -20,12 +20,16 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             TampilData();
+           
         }
 
         //clear input setelah aksi
         private void ClearFields()
         {
-
+            txtJudul.Clear();
+            txtPenulis.Clear();
+            txtStok.Clear();
+            selectedBukuId = 0;
         }
 
 
@@ -67,6 +71,7 @@ namespace WindowsFormsApp1
                     SqlDataAdapter da = new SqlDataAdapter(query, connection);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
+
                     dgvBuku.DataSource = dt;
                 }
                 catch (Exception ex)
@@ -136,7 +141,7 @@ namespace WindowsFormsApp1
 
 
 
-        //Edit data
+        // tombol Edit data
 
         private void btnUbah_Click(object sender, EventArgs e)
         {
@@ -206,7 +211,7 @@ namespace WindowsFormsApp1
             }
         }
 
-
+        //Agar Data Muncul Pada Data Grid View
         private void dgvBuku_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -220,15 +225,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void clearFields()
-
-        {
-            txtJudul.Clear();
-            txtPenulis.Clear();
-            txtStok.Clear();
-            selectedBukuId = 0;
-
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
