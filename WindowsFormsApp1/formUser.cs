@@ -312,5 +312,39 @@ private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+
+        }
+
+        private void toolStrip2_ItemClicked(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["FormDashboard"];
+
+
+            if (frm != null)
+            {
+                frm.BringToFront(); // Jika sudah ada, cukup tampilkan ke depan
+                frm.Focus();
+
+            }
+            else
+            {
+                FormDashboard dash = new FormDashboard();
+                dash.Show();
+               
+            }
+
+            this.Close();
+
+
+        }
     }
 }

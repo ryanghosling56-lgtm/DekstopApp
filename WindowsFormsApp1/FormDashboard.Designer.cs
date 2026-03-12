@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,8 @@
             this.sTATISTIKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,14 +66,14 @@
             this.lAPORANToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(854, 51);
+            this.menuStrip1.Size = new System.Drawing.Size(624, 51);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 47);
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // fILEToolStripMenuItem
@@ -80,15 +83,15 @@
             this.eXITAPPLICATIONToolStripMenuItem});
             this.fILEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fILEToolStripMenuItem.Image")));
             this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
-            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
-            this.fILEToolStripMenuItem.Text = "  FILE";
+            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(100, 47);
+            this.fILEToolStripMenuItem.Text = "SETTING";
             this.fILEToolStripMenuItem.Click += new System.EventHandler(this.fILEToolStripMenuItem_Click);
             // 
             // uSERToolStripMenuItem
             // 
             this.uSERToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uSERToolStripMenuItem.Image")));
             this.uSERToolStripMenuItem.Name = "uSERToolStripMenuItem";
-            this.uSERToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.uSERToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.uSERToolStripMenuItem.Text = "LOGOUT";
             this.uSERToolStripMenuItem.Click += new System.EventHandler(this.uSERToolStripMenuItem_Click);
             // 
@@ -107,8 +110,8 @@
             this.bUKUToolStripMenuItem1});
             this.bUKUToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bUKUToolStripMenuItem.Image")));
             this.bUKUToolStripMenuItem.Name = "bUKUToolStripMenuItem";
-            this.bUKUToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.bUKUToolStripMenuItem.Text = " KELOLA";
+            this.bUKUToolStripMenuItem.Size = new System.Drawing.Size(94, 47);
+            this.bUKUToolStripMenuItem.Text = "KELOLA";
             this.bUKUToolStripMenuItem.Click += new System.EventHandler(this.bUKUToolStripMenuItem_Click);
             // 
             // uSERSToolStripMenuItem
@@ -134,7 +137,7 @@
             this.pENGEMBALIANToolStripMenuItem});
             this.tRANSAKSIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tRANSAKSIToolStripMenuItem.Image")));
             this.tRANSAKSIToolStripMenuItem.Name = "tRANSAKSIToolStripMenuItem";
-            this.tRANSAKSIToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.tRANSAKSIToolStripMenuItem.Size = new System.Drawing.Size(162, 47);
             this.tRANSAKSIToolStripMenuItem.Text = "TRANSAKSI BUKU";
             this.tRANSAKSIToolStripMenuItem.Click += new System.EventHandler(this.tRANSAKSIToolStripMenuItem_Click);
             // 
@@ -157,7 +160,7 @@
             this.sTATISTIKToolStripMenuItem});
             this.lAPORANToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lAPORANToolStripMenuItem.Image")));
             this.lAPORANToolStripMenuItem.Name = "lAPORANToolStripMenuItem";
-            this.lAPORANToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.lAPORANToolStripMenuItem.Size = new System.Drawing.Size(109, 47);
             this.lAPORANToolStripMenuItem.Text = "LAPORAN";
             // 
             // lAPORANTRANSAKSIToolStripMenuItem
@@ -181,7 +184,7 @@
             this.labelStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 453);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(854, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(624, 26);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -192,11 +195,23 @@
             this.labelStatus.Text = "status";
             this.labelStatus.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 479);
+            this.ClientSize = new System.Drawing.Size(624, 479);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -232,5 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem pENGEMBALIANToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lAPORANTRANSAKSIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sTATISTIKToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }

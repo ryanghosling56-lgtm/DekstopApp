@@ -80,5 +80,10 @@ namespace WindowsFormsApp1
             formUser.ShowDialog();
 
         }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

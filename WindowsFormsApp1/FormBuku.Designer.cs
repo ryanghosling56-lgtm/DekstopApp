@@ -97,7 +97,6 @@
             // 
             // txtJudul
             // 
-            this.txtJudul.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtJudul.Location = new System.Drawing.Point(31, 152);
             this.txtJudul.Name = "txtJudul";
             this.txtJudul.Size = new System.Drawing.Size(195, 22);
@@ -105,7 +104,6 @@
             // 
             // txtPenulis
             // 
-            this.txtPenulis.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPenulis.Location = new System.Drawing.Point(232, 152);
             this.txtPenulis.Name = "txtPenulis";
             this.txtPenulis.Size = new System.Drawing.Size(195, 22);
@@ -113,7 +111,6 @@
             // 
             // txtStok
             // 
-            this.txtStok.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtStok.Location = new System.Drawing.Point(433, 152);
             this.txtStok.Name = "txtStok";
             this.txtStok.Size = new System.Drawing.Size(93, 22);
@@ -161,7 +158,6 @@
             // 
             // Penulis
             // 
-            this.Penulis.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Penulis.AutoSize = true;
             this.Penulis.Location = new System.Drawing.Point(229, 133);
             this.Penulis.Name = "Penulis";
@@ -172,7 +168,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 133);
             this.label3.Name = "label3";
@@ -183,7 +178,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(430, 132);
             this.label4.Name = "label4";
