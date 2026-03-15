@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         {
             txtUsername.Clear();
             txtPassword.Clear();
-            SelectedUserID = 0;
+            SelectedUserID = 0; 
         }
 
 
@@ -326,6 +326,13 @@ private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
 
         private void toolStrip2_ItemClicked(object sender, EventArgs e)
         {
+           
+
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
             Form frm = Application.OpenForms["FormDashboard"];
 
 
@@ -339,12 +346,10 @@ private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
             {
                 FormDashboard dash = new FormDashboard();
                 dash.Show();
-               
+
             }
 
             this.Close();
-
-
         }
     }
 }

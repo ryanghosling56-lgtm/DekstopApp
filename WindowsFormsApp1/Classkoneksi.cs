@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
    public static class Classkoneksi
     {
-        public static string ConnectionString = @"Data Source=TKJSTEWA-1\SQLEXPRESS;Initial Catalog=PERPUSTAKAAN_ESEMKA;Integrated Security=True";
+        public static string ConnectionString = @"Data Source=TKJSTEWA-1\SQLEXPRESS;Initial Catalog=LKS_2026;Integrated Security=True";
         public static string NamaUser;
         public static string StatusUser;
 

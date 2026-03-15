@@ -266,6 +266,30 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["FormDashboard"];
+
+            if (frm != null)
+            {
+                frm.BringToFront();
+                frm.Focus();
+
+            }
+            else
+            {
+                FormDashboard dash = new FormDashboard();
+                dash.Show();
+
+            }
+            this.Close();
+        }
     }
 }
 

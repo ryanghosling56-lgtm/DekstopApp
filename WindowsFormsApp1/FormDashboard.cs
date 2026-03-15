@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
 
         private void FormDashboard_Load(object sender, EventArgs e)
         {
-            labelStatus.Text= "Status Login: " + Classkoneksi.StatusUser;
+            labelStatus.Text= "   Status Login : " + Classkoneksi.StatusUser ;
         }
 
         private void uSERSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +82,36 @@ namespace WindowsFormsApp1
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
