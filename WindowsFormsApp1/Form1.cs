@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
         }
 
 
-        //Tombol Login!!!
+        //Tombol SIGN IN!!!
         private void button1_Click_1(object sender, EventArgs e)
         {
             using (SqlConnection conn = Classkoneksi.GetConn())
@@ -63,12 +63,12 @@ namespace WindowsFormsApp1
                 try
                 {
                     
-                    string sql = "SELECT U.username, R.nama_status FROM Users U " +
+                    string sql = "SELECT U.email, R.nama_status FROM Users U " +
                                  " JOIN Status R ON U.status_id = R.id " +
-                                 " WHERE U.username=@user AND U.password=@pass";
+                                 " WHERE U.email=@email AND U.password=@pass";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@user", txtUsername.Text.Trim());
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                     cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());
 
                     //membuka koneksi
@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
                     //Saat Data ditemukan..
                     if (dr.Read())
                     {
-                        Classkoneksi.NamaUser = dr["username"].ToString();
+                        Classkoneksi.NamaUser = dr["email"].ToString();
                         Classkoneksi.StatusUser = dr["nama_status"].ToString();
 
                         if (Classkoneksi.StatusUser.ToLower() == "admin") 
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        MessageBox.Show("Username atau password salah!!");
+                        MessageBox.Show("Email atau password salah!!");
                     }
                 }
                 catch (Exception ex)
@@ -110,21 +110,7 @@ namespace WindowsFormsApp1
 
                 }
 
-                if (chkRemember.Checked)
-                {
-                    Properties.Settings.Default.Username = txtUsername.Text;
-                    Properties.Settings.Default.RememberMe = true;
-                }
-
-                else 
-                {
-
-                    Properties.Settings.Default.Username = "";
-                    Properties.Settings.Default.RememberMe = false;
-
-                    Properties.Settings.Default.Save();
-
-                }
+               
             }
         }
 
@@ -157,15 +143,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void LoginPerpus_Load(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.RememberMe == true)
-            {
-                txtUsername.Text = Properties.Settings.Default.Username;
-                chkRemember.Checked = true;
-
-            }
-        }
+        
 
         private void chkRemember_CheckedChanged(object sender, EventArgs e)
         {

@@ -32,10 +32,19 @@ namespace WindowsFormsApp1
 
         }
 
+        //exit app!!
+
         private void eXITAPPLICATIONToolStripMenuItem_Click(object sender, EventArgs e)
+
         {
-            Application.Exit();
+            DialogResult dr = MessageBox.Show("Yakin Ingin Keluar Dari Aplikasi?" , "Konfirmasi" , MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
+         
+        // membuka formBuku!
 
         private void bUKUToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -43,15 +52,23 @@ namespace WindowsFormsApp1
             formbuku.ShowDialog();
         }
 
+
+        // SignOut
         private void uSERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //kosongkan formlogin
             Classkoneksi.NamaUser = null;
             Classkoneksi.StatusUser = null;
 
-            LoginPerpus login = new LoginPerpus();
-            login.Show();
-            this.Close();
+            DialogResult dr = MessageBox.Show(" Anda Yakin Ingin SignOut ? ", "Konfirmasi", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                LoginPerpus login = new LoginPerpus();
+                login.Show();
+                this.Close();
+            }
+
+          
         }
 
         private void fILEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +90,8 @@ namespace WindowsFormsApp1
         {
             labelStatus.Text= "   Status Login : " + Classkoneksi.StatusUser ;
         }
+
+        //membuka form USers!
 
         private void uSERSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -114,6 +133,13 @@ namespace WindowsFormsApp1
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+         // membuka form Peminjaman!!
+
+        private void pEMINJAMANToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPeminjaman formPeminjaman = new FormPeminjaman();
+            formPeminjaman.ShowDialog();
         }
     }
 }

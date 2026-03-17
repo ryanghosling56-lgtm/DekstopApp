@@ -33,7 +33,7 @@
             this.chkRemember = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.chkRemember);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.txtUsername);
+            this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -101,17 +101,17 @@
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
-            // txtUsername
+            // txtEmail
             // 
-            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUsername.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(70, 343);
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(387, 39);
-            this.txtUsername.TabIndex = 0;
-            this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(70, 343);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(387, 39);
+            this.txtEmail.TabIndex = 0;
+            this.txtEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label5
             // 
@@ -140,9 +140,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(66, 317);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(54, 23);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Username";
+            this.label2.Text = "Email";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
@@ -211,7 +211,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;

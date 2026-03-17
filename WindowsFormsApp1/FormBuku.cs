@@ -211,7 +211,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        //Agar Data Muncul Pada Data Grid View
+        //Agar Data Dapat dipilih Pada DGV
         private void dgvBuku_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
