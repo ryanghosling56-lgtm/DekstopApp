@@ -35,9 +35,10 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string query = @"SELECT p.id, u.email as [Nama Peminjam], b.judul as [Judul Buku],
-                                    p.tgl_pinjam as [Tanggal Pinjam], p.tgl_kembali as [Deadline], p.status as [Status]
+                    string query = @"SELECT p.id, u.email as [Peminjam], b.judul as [Judul Buku],
+                                    p.tgl_pinjam as [Tanggal Pinjam], p.tgl_kembali as [Tanggal Kembali], k.nama_kondisi as [Kondisi Buku]
                                     FROM Peminjaman p
+                                    JOIN Kondisi k ON p.kondisi_id = k.id_kondisi
                                     JOIN Users u ON p.user_id = u.id
                                     JOIN Buku b ON p.buku_id = b.id";
 
@@ -69,14 +70,15 @@ namespace WindowsFormsApp1
                 {
                     conn.Open();
 
-                    string sql = @"SELECT p.id as [id pinjam],
+                    string sql = @"SELECT p.id as [ID Peminjam],
                                 u.email as [Peminjam],
                                 b.judul as [Judul Buku],
                                 p.tgl_pinjam as [Tanggal Pinjam],
                                 p.tgl_kembali as [Tanggal Kembali],
-                                p.status as [Status]
+                                k.nama_kondisi as [Kondisi Buku]
 
                                 FROM Peminjaman p 
+                                JOIN Kondisi k ON p.kondisi_id = k.id_kondisi
                                 JOIN Users u ON p.user_id = u.id
                                 JOIN Buku b ON p.buku_id = b.id";
 
@@ -99,7 +101,7 @@ namespace WindowsFormsApp1
         //Create btn !
         private void btntambah_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbUser.Text) || string.IsNullOrEmpty(cmbUser.Text))  
+            if (string.IsNullOrEmpty(cmbUser.Text) || string.IsNullOrEmpty(cmbBuku.Text))  
             {
                 MessageBox.Show("Semua Kolom Harus Diisi!");
                 return;
@@ -109,15 +111,18 @@ namespace WindowsFormsApp1
             {
                 conn.Open();
 
-                string sql = @"INSERT INTO Peminjaman (user_id, buku_id, tgl_pinjam, tgl_kembali, status)
-                             VALUES (@uid, @bid, @tglp, @tglk, 'Dipinjam');
+                string sql = @"INSERT INTO Peminjaman (user_id, buku_id, kondisi_id , tgl_pinjam, tgl_kembali )
+                             VALUES (@uid, @bid, @kid, @tglp, @tglk );
                              UPDATE Buku SET stok = stok - 1 WHERE id = @bid;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@uid", cmbUser.SelectedValue);
                 cmd.Parameters.AddWithValue("@bid", cmbBuku.SelectedValue);
+                cmd.Parameters.AddWithValue("@kid", cmbKondisi.SelectedValue);
                 cmd.Parameters.AddWithValue("@tglp", dtpPinjam.Value);
                 cmd.Parameters.AddWithValue("@tglk", dtpKembali.Value);
+               
+
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Peminjaman Berhasil!");
@@ -145,9 +150,10 @@ namespace WindowsFormsApp1
                     string sql = @"UPDATE Peminjaman SET  
                                  user_id = @uid,
                                  buku_id = @bid,
+                                 kondisi_id = @kid,
                                  tgl_pinjam = @tglp,
                                  tgl_kembali = @tglk,
-                                 status = @status,
+                               
                                  WHERE id = @id";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
@@ -156,9 +162,10 @@ namespace WindowsFormsApp1
 
                     cmd.Parameters.AddWithValue("@uid", cmbUser.SelectedValue);
                     cmd.Parameters.AddWithValue("@bid", cmbBuku.SelectedValue);
+                    cmd.Parameters.AddWithValue("@kid", cmbKondisi.SelectedValue);
                     cmd.Parameters.AddWithValue("@tglp", dtpPinjam.Value);
                     cmd.Parameters.AddWithValue("@tglk", dtpKembali.Value);
-                    cmd.Parameters.AddWithValue("@status", cmbStatus.SelectedValue);
+                   
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data Peminjaman Berhasil Diubah!");
@@ -177,8 +184,46 @@ namespace WindowsFormsApp1
             }
             
         }
-       
-        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (SelectedPinjamID == 0)
+            {
+                MessageBox.Show("Pilih Data Yang Ingin Dihapus!");
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Yakin ingin Menghapus Detail Transaksi?" , "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                using (SqlConnection conn = Classkoneksi.GetConn())
+                    try
+                    {
+                        conn.Open();
+                        string sql = "DELETE FROM Peminjaman WHERE id=@id";
+                        SqlCommand cmd = new SqlCommand(sql, conn);
+
+                        cmd.Parameters.AddWithValue("@id", SelectedPinjamID);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data Berhasil Dihapus");
+
+                        TampilPinjam();
+                        ClearField();
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal Menghapus Data : " + ex.Message );
+                    }
+            }
+        }
+
+
+
+
         private void LoadComboBox()
         {
             using (SqlConnection conn = Classkoneksi.GetConn())
@@ -206,19 +251,19 @@ namespace WindowsFormsApp1
                     cmbBuku.ValueMember = "id";
 
 
-                    string sqlStatus = "SELECT * FROM [Status]";
-                    SqlDataAdapter daStatus = new SqlDataAdapter(sqlStatus, conn);
-                    DataTable dtStatus = new DataTable();
-                    daStatus.Fill(dtStatus);
+                    string sqlKondisi = "SELECT id_kondisi, nama_kondisi FROM Kondisi";
+                    SqlDataAdapter daKondisi = new SqlDataAdapter(sqlKondisi, conn);
+                    DataTable dtKondisi = new DataTable();
+                    daKondisi.Fill(dtKondisi);
 
-                    cmbStatus.DataSource = dtStatus;
-                    cmbStatus.DisplayMember = "nama_status";
-                    cmbStatus.ValueMember = "id";
+                    cmbKondisi.DataSource = dtKondisi;
+                    cmbKondisi.DisplayMember = "nama_kondisi";
+                    cmbKondisi.ValueMember = "id_kondisi";
 
                     //Agar Cmb kosong saat pertama kali form dibuka!
                     cmbUser.SelectedIndex = -1;
                     cmbBuku.SelectedIndex = -1;
-                    cmbStatus.SelectedIndex = -1;
+                    cmbKondisi.SelectedIndex = -1;
 
                 }
                 catch (Exception ex)
@@ -243,15 +288,22 @@ namespace WindowsFormsApp1
         private void dgvPeminjaman_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
+            
             {
                 DataGridViewRow row = dgvPeminjaman.Rows[e.RowIndex];
-                SelectedPinjamID = int.Parse(row.Cells["id"].Value.ToString());
-                cmbUser.Text = row.Cells["email"].Value.ToString();
-                cmbBuku.Text = row.Cells["judul"].Value.ToString();
-                cmbStatus.Text = row.Cells["nama_status"].Value.ToString();
+                {
+                    if(row.Cells["ID Peminjam"].Value != null)
+                    {
+                        SelectedPinjamID = int.Parse(row.Cells["ID Peminjam"].Value.ToString());
+                        cmbUser.Text = row.Cells["Peminjam"].Value.ToString();
+                        cmbBuku.Text = row.Cells["Judul Buku"].Value.ToString();
+                        cmbKondisi.Text = row.Cells["Kondisi Buku"].Value.ToString();
 
-                dtpPinjam.Value = Convert.ToDateTime(row.Cells["Tanggal Pinjam"].Value);
-                dtpKembali.Value = Convert.ToDateTime(row.Cells["Tanggal Kembali"].Value);
+                        dtpPinjam.Value = Convert.ToDateTime(row.Cells["Tanggal Pinjam"].Value);
+                        dtpKembali.Value = Convert.ToDateTime(row.Cells["Tanggal Kembali"].Value);
+                    }
+                }
+               
 
 
 
@@ -314,6 +366,16 @@ namespace WindowsFormsApp1
        
 
         private void dgvPeminjaman_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FormPeminjaman_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

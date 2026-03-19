@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuku));
             this.dgvBuku = new System.Windows.Forms.DataGridView();
             this.txtJudul = new System.Windows.Forms.TextBox();
@@ -63,58 +63,58 @@
             this.dgvBuku.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBuku.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvBuku.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBuku.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBuku.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBuku.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBuku.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvBuku.Location = new System.Drawing.Point(27, 272);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBuku.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBuku.Location = new System.Drawing.Point(59, 254);
             this.dgvBuku.Name = "dgvBuku";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBuku.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBuku.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBuku.RowHeadersVisible = false;
             this.dgvBuku.RowHeadersWidth = 51;
             this.dgvBuku.RowTemplate.Height = 24;
-            this.dgvBuku.Size = new System.Drawing.Size(743, 125);
+            this.dgvBuku.Size = new System.Drawing.Size(900, 404);
             this.dgvBuku.TabIndex = 0;
             this.dgvBuku.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuku_CellClick_1);
             this.dgvBuku.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuku_CellContentClick);
             // 
             // txtJudul
             // 
-            this.txtJudul.Location = new System.Drawing.Point(31, 152);
+            this.txtJudul.Location = new System.Drawing.Point(59, 155);
             this.txtJudul.Name = "txtJudul";
             this.txtJudul.Size = new System.Drawing.Size(195, 22);
             this.txtJudul.TabIndex = 1;
             // 
             // txtPenulis
             // 
-            this.txtPenulis.Location = new System.Drawing.Point(232, 152);
+            this.txtPenulis.Location = new System.Drawing.Point(260, 155);
             this.txtPenulis.Name = "txtPenulis";
             this.txtPenulis.Size = new System.Drawing.Size(195, 22);
             this.txtPenulis.TabIndex = 2;
             // 
             // txtStok
             // 
-            this.txtStok.Location = new System.Drawing.Point(433, 152);
+            this.txtStok.Location = new System.Drawing.Point(461, 155);
             this.txtStok.Name = "txtStok";
             this.txtStok.Size = new System.Drawing.Size(93, 22);
             this.txtStok.TabIndex = 3;
@@ -125,9 +125,9 @@
             this.btntambah.BackColor = System.Drawing.Color.ForestGreen;
             this.btntambah.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntambah.ForeColor = System.Drawing.Color.Black;
-            this.btntambah.Location = new System.Drawing.Point(542, 97);
+            this.btntambah.Location = new System.Drawing.Point(997, 103);
             this.btntambah.Name = "btntambah";
-            this.btntambah.Size = new System.Drawing.Size(228, 27);
+            this.btntambah.Size = new System.Drawing.Size(228, 37);
             this.btntambah.TabIndex = 4;
             this.btntambah.Text = "TAMBAH";
             this.btntambah.UseVisualStyleBackColor = false;
@@ -138,9 +138,9 @@
             this.btnedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnedit.BackColor = System.Drawing.Color.Orange;
             this.btnedit.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnedit.Location = new System.Drawing.Point(542, 152);
+            this.btnedit.Location = new System.Drawing.Point(997, 179);
             this.btnedit.Name = "btnedit";
-            this.btnedit.Size = new System.Drawing.Size(228, 25);
+            this.btnedit.Size = new System.Drawing.Size(228, 37);
             this.btnedit.TabIndex = 5;
             this.btnedit.Text = "EDIT";
             this.btnedit.UseVisualStyleBackColor = false;
@@ -151,9 +151,9 @@
             this.btnhapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnhapus.BackColor = System.Drawing.Color.Red;
             this.btnhapus.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhapus.Location = new System.Drawing.Point(542, 204);
+            this.btnhapus.Location = new System.Drawing.Point(997, 251);
             this.btnhapus.Name = "btnhapus";
-            this.btnhapus.Size = new System.Drawing.Size(228, 26);
+            this.btnhapus.Size = new System.Drawing.Size(228, 37);
             this.btnhapus.TabIndex = 6;
             this.btnhapus.Text = "HAPUS";
             this.btnhapus.UseVisualStyleBackColor = false;
@@ -162,7 +162,7 @@
             // Penulis
             // 
             this.Penulis.AutoSize = true;
-            this.Penulis.Location = new System.Drawing.Point(229, 133);
+            this.Penulis.Location = new System.Drawing.Point(257, 136);
             this.Penulis.Name = "Penulis";
             this.Penulis.Size = new System.Drawing.Size(91, 16);
             this.Penulis.TabIndex = 8;
@@ -172,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 133);
+            this.label3.Location = new System.Drawing.Point(56, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 9;
@@ -182,7 +182,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(430, 132);
+            this.label4.Location = new System.Drawing.Point(458, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 10;
@@ -192,11 +192,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 253);
+            this.label2.Location = new System.Drawing.Point(56, 225);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 17);
+            this.label2.Size = new System.Drawing.Size(98, 17);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Pilih Buku yang ingin diubah!";
+            this.label2.Text = "List Data Buku";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // label1
@@ -229,7 +229,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 62);
+            this.panel1.Size = new System.Drawing.Size(1272, 62);
             this.panel1.TabIndex = 11;
             // 
             // toolStrip2
@@ -262,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1272, 739);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);

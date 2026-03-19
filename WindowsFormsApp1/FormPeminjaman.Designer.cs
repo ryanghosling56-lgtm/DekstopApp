@@ -41,16 +41,17 @@
             this.btntambah = new System.Windows.Forms.Button();
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.cmbBuku = new System.Windows.Forms.ComboBox();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.cmbKondisi = new System.Windows.Forms.ComboBox();
             this.dtpPinjam = new System.Windows.Forms.DateTimePicker();
             this.dtpKembali = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnHapus = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeminjaman)).BeginInit();
@@ -62,9 +63,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(973, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -72,36 +73,37 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 4);
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 31);
+            this.textBox1.Size = new System.Drawing.Size(213, 36);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(1007, 11);
+            this.panel1.Location = new System.Drawing.Point(1007, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 40);
+            this.panel1.Size = new System.Drawing.Size(213, 36);
             this.panel1.TabIndex = 2;
             // 
             // dgvPeminjaman
             // 
+            this.dgvPeminjaman.AllowUserToAddRows = false;
+            this.dgvPeminjaman.AllowUserToDeleteRows = false;
             this.dgvPeminjaman.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPeminjaman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPeminjaman.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPeminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeminjaman.Location = new System.Drawing.Point(51, 260);
+            this.dgvPeminjaman.Location = new System.Drawing.Point(51, 281);
             this.dgvPeminjaman.Name = "dgvPeminjaman";
             this.dgvPeminjaman.RowHeadersWidth = 51;
             this.dgvPeminjaman.RowTemplate.Height = 24;
-            this.dgvPeminjaman.Size = new System.Drawing.Size(885, 414);
+            this.dgvPeminjaman.Size = new System.Drawing.Size(885, 403);
             this.dgvPeminjaman.TabIndex = 3;
             this.dgvPeminjaman.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeminjaman_CellClick);
             this.dgvPeminjaman.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeminjaman_CellContentClick);
@@ -109,6 +111,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.toolStrip2);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.panel1);
@@ -198,14 +201,15 @@
             this.cmbBuku.Size = new System.Drawing.Size(197, 24);
             this.cmbBuku.TabIndex = 16;
             // 
-            // cmbStatus
+            // cmbKondisi
             // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(493, 125);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(121, 24);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbKondisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKondisi.FormattingEnabled = true;
+            this.cmbKondisi.Location = new System.Drawing.Point(493, 125);
+            this.cmbKondisi.Name = "cmbKondisi";
+            this.cmbKondisi.Size = new System.Drawing.Size(121, 24);
+            this.cmbKondisi.TabIndex = 17;
+            this.cmbKondisi.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // dtpPinjam
             // 
@@ -240,32 +244,33 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Tgl Kembali";
             // 
-            // button1
+            // btnEdit
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(992, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(228, 37);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "EDIT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.Location = new System.Drawing.Point(992, 199);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(228, 37);
+            this.btnEdit.TabIndex = 22;
+            this.btnEdit.Text = "EDIT";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnHapus
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(992, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(228, 37);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "HAPUS";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHapus.BackColor = System.Drawing.Color.Red;
+            this.btnHapus.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHapus.ForeColor = System.Drawing.Color.Black;
+            this.btnHapus.Location = new System.Drawing.Point(992, 271);
+            this.btnHapus.Name = "btnHapus";
+            this.btnHapus.Size = new System.Drawing.Size(228, 37);
+            this.btnHapus.TabIndex = 23;
+            this.btnHapus.Text = "HAPUS";
+            this.btnHapus.UseVisualStyleBackColor = false;
+            this.btnHapus.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -279,7 +284,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(273, 107);
+            this.label5.Location = new System.Drawing.Point(271, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 25;
@@ -290,33 +295,50 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(493, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.Size = new System.Drawing.Size(51, 16);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Status";
+            this.label6.Text = "Kondisi";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(48, 251);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 17);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "List Detail Transaksi";
             // 
             // FormPeminjaman
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1263, 715);
+            this.ControlBox = false;
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHapus);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpKembali);
             this.Controls.Add(this.dtpPinjam);
-            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.cmbKondisi);
             this.Controls.Add(this.cmbBuku);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.btntambah);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvPeminjaman);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormPeminjaman";
             this.Text = "Perpustakaan Esemka - Peminjaman";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPengembalian_Load);
+            this.Click += new System.EventHandler(this.FormPeminjaman_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -344,15 +366,16 @@
         private System.Windows.Forms.Button btntambah;
         private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.ComboBox cmbBuku;
-        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.ComboBox cmbKondisi;
         private System.Windows.Forms.DateTimePicker dtpPinjam;
         private System.Windows.Forms.DateTimePicker dtpKembali;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

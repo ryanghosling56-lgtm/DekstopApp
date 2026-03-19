@@ -185,7 +185,7 @@ namespace WindowsFormsApp1
             }   
 
             // Konfirmasi Hapus (Poin User Experience)
-            DialogResult dr = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 using (SqlConnection conn = new SqlConnection(Classkoneksi.ConnectionString))
@@ -220,7 +220,7 @@ namespace WindowsFormsApp1
                 selectedBukuId = int.Parse(row.Cells["id"].Value.ToString());
                 txtJudul.Text = row.Cells["judul"].Value.ToString();
                 txtPenulis.Text = row.Cells["penulis"].Value.ToString();
-                txtStok.Text = row.Cells["Stok"].Value.ToString();
+                txtStok.Text = row.Cells["stok"].Value.ToString();
             }
         }
 

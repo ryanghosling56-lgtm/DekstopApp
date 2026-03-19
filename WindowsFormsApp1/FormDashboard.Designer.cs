@@ -83,7 +83,7 @@
             // 
             this.uSERToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uSERToolStripMenuItem.Image")));
             this.uSERToolStripMenuItem.Name = "uSERToolStripMenuItem";
-            this.uSERToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uSERToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.uSERToolStripMenuItem.Text = "SIGN OUT";
             this.uSERToolStripMenuItem.Click += new System.EventHandler(this.uSERToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@
             // 
             this.eXITAPPLICATIONToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eXITAPPLICATIONToolStripMenuItem.Image")));
             this.eXITAPPLICATIONToolStripMenuItem.Name = "eXITAPPLICATIONToolStripMenuItem";
-            this.eXITAPPLICATIONToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eXITAPPLICATIONToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.eXITAPPLICATIONToolStripMenuItem.Text = "EXIT ";
             this.eXITAPPLICATIONToolStripMenuItem.Click += new System.EventHandler(this.eXITAPPLICATIONToolStripMenuItem_Click);
             // 
@@ -115,7 +115,7 @@
             // 
             this.uSERSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uSERSToolStripMenuItem.Image")));
             this.uSERSToolStripMenuItem.Name = "uSERSToolStripMenuItem";
-            this.uSERSToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uSERSToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.uSERSToolStripMenuItem.Text = "DATA USERS";
             this.uSERSToolStripMenuItem.Click += new System.EventHandler(this.uSERSToolStripMenuItem_Click);
             // 
@@ -123,7 +123,7 @@
             // 
             this.bUKUToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("bUKUToolStripMenuItem1.Image")));
             this.bUKUToolStripMenuItem1.Name = "bUKUToolStripMenuItem1";
-            this.bUKUToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.bUKUToolStripMenuItem1.Size = new System.Drawing.Size(176, 26);
             this.bUKUToolStripMenuItem1.Text = "DATA BUKU";
             this.bUKUToolStripMenuItem1.Click += new System.EventHandler(this.bUKUToolStripMenuItem1_Click);
             // 
@@ -150,6 +150,7 @@
             this.pENGEMBALIANToolStripMenuItem.Name = "pENGEMBALIANToolStripMenuItem";
             this.pENGEMBALIANToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pENGEMBALIANToolStripMenuItem.Text = "PENGEMBALIAN";
+            this.pENGEMBALIANToolStripMenuItem.Click += new System.EventHandler(this.pENGEMBALIANToolStripMenuItem_Click);
             // 
             // lAPORANToolStripMenuItem
             // 

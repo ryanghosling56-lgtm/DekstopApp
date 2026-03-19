@@ -201,7 +201,7 @@ namespace WindowsFormsApp1
 
             //KOnfirmasi hapus!
 
-            DialogResult dr = MessageBox.Show("Yakin ingin Menghapus User?", "Konfirmasi"  , MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("Yakin ingin Menghapus User?", "Konfirmasi"  , MessageBoxButtons.YesNo , MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 using (SqlConnection conn = Classkoneksi.GetConn())
@@ -210,7 +210,10 @@ namespace WindowsFormsApp1
                         conn.Open();
                         string sql = "DELETE FROM Users WHERE id=@id";
                         SqlCommand cmd = new SqlCommand(sql, conn);
+
+
                         cmd.Parameters.AddWithValue("@id", SelectedUserID);
+
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("User Berhasil Dihapus");

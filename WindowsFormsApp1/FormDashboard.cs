@@ -141,5 +141,11 @@ namespace WindowsFormsApp1
             FormPeminjaman formPeminjaman = new FormPeminjaman();
             formPeminjaman.ShowDialog();
         }
+
+        private void pENGEMBALIANToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPengembalian formPengembalian = new FormPengembalian();
+            formPengembalian.ShowDialog();
+        }
     }
 }
