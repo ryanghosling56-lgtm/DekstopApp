@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
         private void eXITAPPLICATIONToolStripMenuItem_Click(object sender, EventArgs e)
 
         {
-            DialogResult dr = MessageBox.Show("Yakin Ingin Keluar Dari Aplikasi?" , "Konfirmasi" , MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("Yakin Ingin Keluar Dari Aplikasi?" , "Konfirmasi" , MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 Application.Exit();

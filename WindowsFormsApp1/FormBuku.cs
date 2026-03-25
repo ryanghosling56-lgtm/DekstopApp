@@ -32,6 +32,9 @@ namespace WindowsFormsApp1
             selectedBukuId = 0;
         }
 
+        //Untuk logika stok kosong!!
+      
+
 
         //Menampilkan Data Di DataGridView
         void TampilData()
@@ -110,12 +113,14 @@ namespace WindowsFormsApp1
                     conn.Open();
 
                     //agar stok berupa angka[int]
-                    int stok;
+                    int stok = 0;
                     if (!int.TryParse(txtStok.Text, out stok))
                     {
                         MessageBox.Show("Stok harus diisi angka!!");
                         return;
                     }
+
+                   
 
                     string sql = "INSERT INTO Buku (judul, penulis, stok) VALUES (@judul, @penulis, @stok)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
@@ -290,8 +295,34 @@ namespace WindowsFormsApp1
             }
             this.Close();
         }
+
+        private void FormBuku_TextChanged(object sender, EventArgs e)
+        { 
+            
+        }
+
+
+        //Fitur Search Dan filtering!!
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                string sql = "SELECT * FROM Buku WHERE judul LIKE @cari OR penulis LIKE @cari";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
+
+
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvBuku.DataSource = dt;
+            }
+        }
     }
 }
+
+
 
     
 
