@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace WindowsFormsApp1
 {
@@ -15,6 +18,58 @@ namespace WindowsFormsApp1
         public FormDashboard()
         {
             InitializeComponent();
+        }
+
+
+        //Load Dashboard!!
+        private void FormDashboard_Load(object sender, EventArgs e)
+        {
+            //menampilkan chart 
+            TampilGrafik();
+
+            //label status di bwah / opsional
+
+            labelStatus.Text = "Status Login : " + Classkoneksi.StatusUser;
+
+        }
+
+
+        // MEnampilkan Laporan chart!!
+        private void TampilGrafik()
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = @"SELECT DATENAME(MONTH, tgl_pinjam) AS Bulan, COUNT(id) AS TOTAL FROM Peminjaman GROUP BY DATENAME(MONTH, tgl_pinjam), MONTH(tgl_pinjam) ORDER BY MONTH(tgl_pinjam) ASC";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    chart1.Series["Data Transaksi /bln"].Points.Clear();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        chart1.Series["Data Transaksi /bln"].Points.AddXY(row["Bulan"].ToString(), row["TOTAL"]);
+
+
+                    }
+
+
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal Load Grafik:" + ex.Message);
+
+                }
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -60,7 +115,7 @@ namespace WindowsFormsApp1
             Classkoneksi.NamaUser = null;
             Classkoneksi.StatusUser = null;
 
-            DialogResult dr = MessageBox.Show(" Anda Yakin Ingin SignOut ? ", "Konfirmasi", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show(" Anda Yakin Ingin SignOut ? ", "Konfirmasi", MessageBoxButtons.YesNo , MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 LoginPerpus login = new LoginPerpus();
@@ -86,10 +141,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void FormDashboard_Load(object sender, EventArgs e)
-        {
-            labelStatus.Text= "   Status Login : " + Classkoneksi.StatusUser ;
-        }
+       
 
         //membuka form USers!
 
@@ -146,6 +198,20 @@ namespace WindowsFormsApp1
         {
             FormPengembalian formPengembalian = new FormPengembalian();
             formPengembalian.ShowDialog();
+        }
+
+        private void dETAILTRANSAKSIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Detail_Transaksi detail = new Detail_Transaksi();
+            detail.ShowDialog();
+        }
+
+
+        //Ketika buka dashboard Chartnya auto update!!!
+        private void FormDashboard_Activated(object sender, EventArgs e)
+        {
+            TampilGrafik();
+
         }
     }
 }

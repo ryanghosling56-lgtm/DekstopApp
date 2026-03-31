@@ -15,10 +15,13 @@ namespace WindowsFormsApp1
         public static string StatusUser;
 
         public static SqlConnection GetConn()
-        {  return new SqlConnection(ConnectionString); }
+        {  
+            return new SqlConnection(ConnectionString); 
+        }
     }
 
    
         // Tambahkan ini di dalam Classkoneksi.cs
 
 }
+

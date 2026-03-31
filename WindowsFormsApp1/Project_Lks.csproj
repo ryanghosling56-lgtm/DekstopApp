@@ -6,12 +6,28 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8B8BC4B0-79DF-4A07-9614-425E9C4425AE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp1</RootNamespace>
-    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <RootNamespace>PerpustakaanEsemka</RootNamespace>
+    <AssemblyName>Perpustakaan Esemka</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +48,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>28_122665 %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WindowsFormsApp1.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BF3032FB113178D7EB0E38D360F3038CE9E48D08</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Project_Lks_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classkoneksi.cs" />
+    <Compile Include="Detail Transaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detail Transaksi.Designer.cs">
+      <DependentUpon>Detail Transaksi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +131,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Detail Transaksi.resx">
+      <DependentUpon>Detail Transaksi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,7 +160,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Project_Lks_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
@@ -124,6 +170,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="28_122665 %281%29.ico" />
+    <None Include="Resources\detail_icon_215012.ico" />
+    <None Include="Resources\28_122665.ico" />
+    <None Include="Resources\31_122668.ico" />
+    <None Include="Resources\read_book_study_icon-icons.com_51077.ico" />
+    <None Include="Resources\setting_gear_settings_configuration_icon_145890.ico" />
+    <None Include="Resources\data_files_archive_folders_icon_148351.ico" />
+    <None Include="Resources\setting_icon_237775.ico" />
+    <None Include="Resources\transaction_minus_icon_244826.ico" />
+    <None Include="Resources\server_database_archive_business_data_storage_folder_office_files_icon_232588.ico" />
+    <None Include="Resources\find_users_applications_search_2908.ico" />
+    <None Include="Resources\log-out_icon-icons.com_50106.ico" />
+    <None Include="Resources\exit_closethesession_close_6317.ico" />
+    <None Include="Resources\search_book_open_search_locate_6178.ico" />
+    <None Include="Resources\28_122665 %281%29.ico" />
+    <None Include="Resources\education_reading_study_literature_library_books_icon_266885.png" />
+    <None Include="Resources\graph_analytics_analysis_chart_statistics_icon_143359.ico" />
+    <None Include="Resources\statistics_114852.ico" />
+    <None Include="Resources\4124799-finance-report-graph-analysis-graph-report-sale-report-stock-report_113890.ico" />
+    <None Include="Resources\report_document_finance_business_analysis_analytics_chart_icon_188615.ico" />
+    <None Include="Resources\book_3725.ico" />
+    <None Include="Resources\back_icon-icons.com_71028.ico" />
+    <None Include="Resources\equalizersoutline_114523.ico" />
+    <None Include="Resources\searchmagnifierinterfacesymbol1_79893.ico" />
+    <None Include="Resources\calendar_icon_192645.ico" />
+    <None Include="Resources\arrow_load_update_sync_loading_reload_refresh_icon_267872.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

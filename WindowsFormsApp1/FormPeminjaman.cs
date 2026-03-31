@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -85,7 +86,8 @@ namespace WindowsFormsApp1
                                 FROM Peminjaman p 
                                 JOIN Kondisi k ON p.kondisi_id = k.id_kondisi
                                 JOIN Users u ON p.user_id = u.id
-                                JOIN Buku b ON p.buku_id = b.id";
+                                JOIN Buku b ON p.buku_id = b.id
+                                ORDER BY p.id DESC";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable();
@@ -324,24 +326,18 @@ namespace WindowsFormsApp1
         //Agar Data Dapat dipilih Pada DGV
         private void dgvPeminjaman_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvPeminjaman.Rows[e.RowIndex].Cells[0].Value != null) 
             
             {
                 DataGridViewRow row = dgvPeminjaman.Rows[e.RowIndex];
-                {
-                    if(row.Cells[0].Value != null)
-                    {
-                        SelectedPinjamID = int.Parse(row.Cells[0].Value.ToString());
-                        cmbUser.Text = row.Cells["Peminjam"].Value.ToString();
-                        cmbBuku.Text = row.Cells["Judul Buku"].Value.ToString();
-                        cmbKondisi.Text = row.Cells["Kondisi Buku"].Value.ToString();
 
-                        dtpPinjam.Value = Convert.ToDateTime(row.Cells["Tanggal Pinjam"].Value);
-                        dtpKembali.Value = Convert.ToDateTime(row.Cells["Tanggal Kembali"].Value);
-                    }
-                }
-               
+                SelectedPinjamID = int.Parse(row.Cells[0].Value.ToString());
+                cmbUser.Text = row.Cells[1].Value.ToString();
+                cmbBuku.Text = row.Cells[2].Value.ToString();
+                cmbKondisi.Text = row.Cells[3].Value.ToString();
 
+                dtpPinjam.Value = Convert.ToDateTime(row.Cells[4].Value);
+                dtpKembali.Value = Convert.ToDateTime(row.Cells[5].Value);
 
 
             }
@@ -420,6 +416,99 @@ namespace WindowsFormsApp1
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT p.id, u.email, b.judul, b.stok, p.tgl_pinjam, p.tgl_kembali, p.tgl_nyata_kembali, p.denda, k.nama_kondisi FROM Peminjaman p JOIN Users u ON p.user_id = u.id JOIN Buku b ON p.buku_id = b.id JOIN Kondisi k ON p.kondisi_id = k.id_kondisi WHERE u.email LIKE @cari OR b.judul LIKE @cari OR b.stok LIKE @cari OR p.denda LIKE @cari OR k.nama_kondisi LIKE @cari ";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvPeminjaman.DataSource = dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error : " + ex.Message);
+
+                }
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = @"SELECT p.id, u.email, b.judul, b.stok, p.tgl_pinjam, p.tgl_kembali, p.tgl_nyata_kembali, p.denda, k.nama_kondisi FROM Peminjaman p JOIN Users u ON p.user_id = u.id JOIN Buku b ON p.buku_id = b.id JOIN Kondisi k ON p.kondisi_id = k.id_kondisi WHERE CAST(p.tgl_pinjam AS DATE) = @tgl";
+
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@tgl", dateTimePicker1.Value.Date);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvPeminjaman.DataSource= dt;
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error :" + ex.Message );
+
+                }
+            }
+        }
+
+        private void toolStrip1_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["formUser"];
+            if (frm != null)
+            {
+                frm.BringToFront();
+                frm.Focus();
+            }
+            else
+            {
+                formUser user = new formUser();
+                user.Show();
+
+
+
+
+            }
+            this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dtpPinjam.Value = DateTime.Now;
+
+            if (txtSearch != null)
+            {
+                txtSearch.Clear();
+
+
+            }
+
+            TampilPinjam();
+
+
+            txtSearch.Focus();
 
         }
     }

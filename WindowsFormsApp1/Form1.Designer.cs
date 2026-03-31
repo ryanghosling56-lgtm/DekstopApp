@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPerpus));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkRemember = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.chkRemember);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtEmail);
@@ -63,17 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(510, 653);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // chkRemember
-            // 
-            this.chkRemember.AutoSize = true;
-            this.chkRemember.Location = new System.Drawing.Point(74, 472);
-            this.chkRemember.Name = "chkRemember";
-            this.chkRemember.Size = new System.Drawing.Size(115, 20);
-            this.chkRemember.TabIndex = 10;
-            this.chkRemember.Text = "Remember Me";
-            this.chkRemember.UseVisualStyleBackColor = true;
-            this.chkRemember.CheckedChanged += new System.EventHandler(this.chkRemember_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -158,7 +145,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::PerpustakaanEsemka.Properties.Resources.education_reading_study_literature_library_books_icon_266885;
             this.pictureBox1.Location = new System.Drawing.Point(178, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(167, 124);
@@ -195,7 +182,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perpustakaan Esemka";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-          
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -215,7 +201,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox chkRemember;
     }
 }
 

@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             TampilData();
-           
+
         }
 
         //clear input setelah aksi
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
         }
 
         //Untuk logika stok kosong!!
-      
+
 
 
         //Menampilkan Data Di DataGridView
@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
             LoadData();
         }
 
-      
+
 
 
 
@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
                         return;
                     }
 
-                   
+
 
                     string sql = "INSERT INTO Buku (judul, penulis, stok) VALUES (@judul, @penulis, @stok)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
@@ -187,7 +187,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Silahkan pilih data yang ingin dihapus ");
                 return;
-            }   
+            }
 
             // Konfirmasi Hapus (Poin User Experience)
             DialogResult dr = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -204,7 +204,7 @@ namespace WindowsFormsApp1
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Data berhasil dihapus!");
-                   
+
                         TampilData();
                         ClearFields();
                     }
@@ -219,18 +219,18 @@ namespace WindowsFormsApp1
         //Agar Data Dapat dipilih Pada DGV
         private void dgvBuku_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvBuku.Rows[e.RowIndex].Cells[0].Value != null) 
             {
                 DataGridViewRow row = dgvBuku.Rows[e.RowIndex];
-                selectedBukuId = int.Parse(row.Cells["id"].Value.ToString());
-                txtJudul.Text = row.Cells["judul"].Value.ToString();
-                txtPenulis.Text = row.Cells["penulis"].Value.ToString();
-                txtStok.Text = row.Cells["stok"].Value.ToString();
+                selectedBukuId = int.Parse(row.Cells[0].Value.ToString());
+                txtJudul.Text = row.Cells[1].Value.ToString();
+                txtPenulis.Text = row.Cells[2].Value.ToString();
+                txtStok.Text = row.Cells[4].Value.ToString();
             }
         }
 
 
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -254,17 +254,7 @@ namespace WindowsFormsApp1
 
         private void dgvBuku_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvBuku.Rows[e.RowIndex].Cells[0].Value != null) 
-
-            {
-                DataGridViewRow row = dgvBuku.Rows[e.RowIndex];
-
-                selectedBukuId = Convert.ToInt32(row.Cells[0].Value);
-
-                txtJudul.Text = row.Cells[1].Value?.ToString() ?? "";
-                txtPenulis.Text = row.Cells[2].Value?.ToString() ?? "";
-                txtStok.Text = row.Cells[3].Value?.ToString() ?? "";
-            }
+            
         }
 
         private void label2_Click_1(object sender, EventArgs e)
@@ -297,8 +287,8 @@ namespace WindowsFormsApp1
         }
 
         private void FormBuku_TextChanged(object sender, EventArgs e)
-        { 
-            
+        {
+
         }
 
 
@@ -307,17 +297,63 @@ namespace WindowsFormsApp1
         {
             using (SqlConnection conn = Classkoneksi.GetConn())
             {
-                string sql = "SELECT * FROM Buku WHERE judul LIKE @cari OR penulis LIKE @cari";
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM Buku WHERE judul LIKE @cari OR penulis LIKE @cari";
 
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    // Memberikan nilai ke parameter @cari
+                    cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
 
+                    // PENTING: Adapter harus menggunakan 'cmd', bukan 'sql'
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
 
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvBuku.DataSource = dt;
+                    dgvBuku.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error : " + ex.Message);
+                }
             }
+
+
+        }
+
+        private void toolStrip1_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["formUser"];
+            if (frm != null)
+            {
+                frm.BringToFront();
+                frm.Focus();
+            }
+            else
+            {
+                formUser user = new formUser();
+                user.Show();
+
+
+
+
+            }
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtSearch != null)
+            {
+                txtSearch.Clear();
+
+            }
+
+            TampilData();
+
+            txtSearch.Focus();
+
         }
     }
 }

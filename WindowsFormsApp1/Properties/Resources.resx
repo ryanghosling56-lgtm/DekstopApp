@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,85 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="28_122665" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\28_122665.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="server_database_archive_business_data_storage_folder_office_files_icon_232588" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_database_archive_business_data_storage_folder_office_files_icon_232588.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="graph_analytics_analysis_chart_statistics_icon_143359" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\graph_analytics_analysis_chart_statistics_icon_143359.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book_3725" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book_3725.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_icon_192645" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_icon_192645.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="education_reading_study_literature_library_books_icon_266885" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\education_reading_study_literature_library_books_icon_266885.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_icon_237775" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_icon_237775.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back_icon-icons.com_71028" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_icon-icons.com_71028.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="data_files_archive_folders_icon_148351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data_files_archive_folders_icon_148351.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="find_users_applications_search_2908" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\find_users_applications_search_2908.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_load_update_sync_loading_reload_refresh_icon_267872" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_load_update_sync_loading_reload_refresh_icon_267872.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="28_122665 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\28_122665 (1).ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="log-out_icon-icons.com_50106" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\log-out_icon-icons.com_50106.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_book_open_search_locate_6178" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_book_open_search_locate_6178.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="read_book_study_icon-icons.com_51077" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\read_book_study_icon-icons.com_51077.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_gear_settings_configuration_icon_145890" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_gear_settings_configuration_icon_145890.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statistics_114852" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\statistics_114852.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report_document_finance_business_analysis_analytics_chart_icon_188615" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_document_finance_business_analysis_analytics_chart_icon_188615.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="31_122668" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\31_122668.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transaction_minus_icon_244826" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transaction_minus_icon_244826.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit_closethesession_close_6317" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_closethesession_close_6317.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchmagnifierinterfacesymbol1_79893" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\searchmagnifierinterfacesymbol1_79893.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="equalizersoutline_114523" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\equalizersoutline_114523.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4124799-finance-report-graph-analysis-graph-report-sale-report-stock-report_113890" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4124799-finance-report-graph-analysis-graph-report-sale-report-stock-report_113890.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="detail_icon_215012" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detail_icon_215012.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

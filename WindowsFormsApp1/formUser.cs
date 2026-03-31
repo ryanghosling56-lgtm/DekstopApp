@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             TampilUser();
-            LoadStatus();
+            LoadComboBox();
         }
 
         private void ClearFields()
@@ -29,6 +29,37 @@ namespace WindowsFormsApp1
         }
 
 
+
+
+
+
+
+        //Koneksi Database
+        private void LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(Classkoneksi.ConnectionString))
+            {
+                try
+                {
+                    string query = "SELECT * FROM Users";
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvUsers.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Load Data!" + ex.Message);
+
+                }
+            }
+        }
+
+        
+
+
+
         //Menampilkan Data Di DataGridView
         void TampilUser()
         {
@@ -37,8 +68,10 @@ namespace WindowsFormsApp1
                 try
                 {
                     conn.Open();
-                    string sql = "SELECT Users.id, Users.email, Users.password, [Status].nama_status" +
-                                  "  FROM Users JOIN [Status] ON Users.status_id = [status].id";
+                    string sql = "SELECT Users.id, Users.email, Users.password, [Status].nama_status FROM Users JOIN [Status] ON Users.status_id = [status].id";
+                                  
+
+
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable();
@@ -57,30 +90,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        //Ambil Data dari Database!!
-        private void LoadData()
-        {
-            using (SqlConnection conn = new SqlConnection(Classkoneksi.ConnectionString))
-            {
-                try
-                {
-                    string query = "SELECT * FROM Users";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dgvUsers.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error Load Data!" + ex.Message);
-
-                }
-            }
-        }
+      
 
 
         //memunculkan ComboBox status!
-        private void LoadStatus()
+        private void LoadComboBox() 
         {
             using (SqlConnection conn = Classkoneksi.GetConn())
             {
@@ -100,7 +114,7 @@ namespace WindowsFormsApp1
                     cmbStatus.ValueMember = "id";
 
                     //Agar Cmb kosong saat pertama kali form dibuka!
-                    cmbStatus.SelectedIndex = 0;
+                    cmbStatus.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
@@ -241,7 +255,7 @@ namespace WindowsFormsApp1
 //Agar Data DApat dipilih pada DGV!!
 private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvUsers.Rows[e.RowIndex].Cells[0].Value != null)
+            if (e.RowIndex >= 0 && dgvUsers.Rows[e.RowIndex].Cells[0].Value != null) 
             {
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
                 SelectedUserID = int.Parse(row.Cells[0].Value.ToString());
@@ -364,6 +378,85 @@ private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
             }
 
             this.Close();
+        }
+
+        //Search!
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT Users.id, Users.email, Users.password, [Status].nama_status FROM Users JOIN [Status] ON Users.status_id = [status].id WHERE Users.email LIKE @cari OR [Status].nama_status LIKE @cari OR Users.id LIKE @cari";
+
+
+
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvUsers.DataSource = dt;
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+
+                }
+            }
+        }
+
+
+
+   
+        private void toolStrip2_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+
+        }
+
+        //reload page!!
+        private void toolStrip2_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["formUser"];
+            if (frm != null)
+            {
+                frm.BringToFront();
+                frm.Focus();
+            }
+            else
+            {
+                formUser user = new formUser();
+                user.Show();
+
+
+
+
+            }
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            if (txtSearch != null)
+            {
+                txtSearch.Clear();
+            }
+
+            TampilUser();
+
+
+            txtSearch.Focus();
         }
     }
 }

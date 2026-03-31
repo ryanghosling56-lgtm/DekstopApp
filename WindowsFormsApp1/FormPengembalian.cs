@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     conn.Open();
-                    string sql = @"SELECT p.id as [ID Peminjam],                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                    string sql = @"SELECT p.id ,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
                                  u.email as [Peminjam],
                                  b.judul as [Judul Buku],
                                 p.tgl_pinjam as [Tanggal Pinjam],
@@ -74,7 +74,8 @@ namespace WindowsFormsApp1
                                    FROM Peminjaman p 
                                 JOIN Users u ON p.user_id = u.id
                                 JOIN Buku b ON p.buku_id = b.id
-                                WHERE p.kondisi_id = 1";
+                                WHERE p.kondisi_id = 1
+                                ORDER BY p.id DESC";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable();
@@ -96,26 +97,22 @@ namespace WindowsFormsApp1
         //Agar DGV dapat di pilih atau klik!!
         private void dgvKembali_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvKembali.Rows[e.RowIndex].Cells[0] != null) 
             {
                 DataGridViewRow row = dgvKembali.Rows[e.RowIndex];
-                {
-                    if (row.Cells["ID Peminjam"].Value != null)
-                    {
-                        SelectedPinjamID = int.Parse(row.Cells["ID Peminjam"].Value.ToString());
+                SelectedPinjamID = int.Parse(row.Cells[0].Value.ToString());
 
-                        cmbUser.Text = row.Cells["Peminjam"].Value.ToString();
-                        cmbBuku.Text = row.Cells["Judul Buku"].Value.ToString();
+                cmbUser.Text = row.Cells[1].Value.ToString();
+                cmbBuku.Text = row.Cells[2].Value.ToString();
 
-                        dtpPinjam.Value = Convert.ToDateTime(row.Cells["Tanggal Pinjam"].Value);
-                        dtpKembali.Value = Convert.ToDateTime(row.Cells["Tanggal Kembali"].Value);
-                        dtpNyata.Value = DateTime.Now;
-                        HitungDenda();
-                    }
-                }
-
+                dtpPinjam.Value = Convert.ToDateTime(row.Cells[3].Value);
+                dtpKembali.Value = Convert.ToDateTime(row.Cells[4].Value);
+                dtpNyata.Value = DateTime.Now;
+                HitungDenda();
             }
         }
+
+
 
         //Fungsi query Agregat Denda! atau hitung denda!
         private void HitungDenda()
@@ -301,6 +298,86 @@ namespace WindowsFormsApp1
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        //search + filter!
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT p.id, u.email, b.judul, p.tgl_pinjam, p.tgl_kembali, p.tgl_nyata_kembali, p.denda, k.nama_kondisi FROM Peminjaman p JOIN Users u ON p.user_id = u.id JOIN Buku b ON p.buku_id = b.id JOIN Kondisi k ON p.kondisi_id = k.id_kondisi WHERE u.email LIKE @cari OR b.judul LIKE @cari OR p.denda LIKE @cari OR k.nama_kondisi LIKE @cari";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@cari", "%" + txtSearch.Text + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvKembali.DataSource = dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+
+                }
+            }
+        }
+
+        //filter DTP!
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Classkoneksi.GetConn())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = @"SELECT p.id, u.email, b.judul, p.tgl_pinjam, p.tgl_kembali, p.tgl_nyata_kembali, p.denda, k.nama_kondisi FROM Peminjaman p JOIN Users u ON p.user_id = u.id JOIN Buku b ON p.buku_id = b.id JOIN Kondisi k ON p.kondisi_id = k.id_kondisi WHERE CAST(p.tgl_kembali AS DATE) = @tgl";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@tgl", dateTimePicker1.Value.Date);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvKembali.DataSource = dt;
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+
+                }
+            }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dtpPinjam.Value = DateTime.Now;
+
+            if (txtSearch != null)
+            {
+                txtSearch.Clear();
+
+            }
+
+            TampilKembali();
+
+            txtSearch.Focus();
         }
     }
 }
